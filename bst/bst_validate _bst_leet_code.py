@@ -1,3 +1,7 @@
+# Complexity: Time: O(N*2), space complexity: O(N)
+# idea: https://afteracademy.com/blog/check-if-a-binary-tree-is-BST-or-not
+
+
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):

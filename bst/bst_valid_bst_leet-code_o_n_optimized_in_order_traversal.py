@@ -12,22 +12,18 @@ class Solution:
     MIN_VAL = pow(-2, 31)
     MAX_VAL = pow(2, 31)-1
     
-    def helper(self, root, minVal, maxVal):
-        if root == None:
-            return True
-        
-        if minVal > root.val or maxVal < root.val:
-            return False
-        
-        if self.helper(root.left, minVal, root.val-1):
-            if self.helper(root.right, root.val+1, maxVal):
-                return True
-        return False
+    def in_order_traversal(self, root, arr):
+        if root:
+            self.in_order_traversal(root.left, arr)
+            arr.append(root.val)
+            self.in_order_traversal(root.right, arr)
             
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
-        
-        if self.helper(root, self.MIN_VAL, self.MAX_VAL):
-            return True
-        return False
+        arr = []
+        self.in_order_traversal(root, arr)
+        for i in range(0, len(arr)-1):
+            if arr[i+1] <= arr[i]:
+                return False
+        return True
             
             
